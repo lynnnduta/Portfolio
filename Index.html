@@ -1,71 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lynn's Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-100 text-gray-900 font-sans">
-    <!-- Navbar -->
-    <nav class="bg-white shadow p-4">
-      <div class="container mx-auto flex justify-between">
-        <h1 class="text-xl font-bold">Lynn Nduta</h1>
-        <ul class="flex space-x-4">
-          <li><a href="#about" class="hover:underline">About</a></li>
-          <li><a href="#skills" class="hover:underline">Skills</a></li>
-          <li><a href="#projects" class="hover:underline">Projects</a></li>
-          <li><a href="#contact" class="hover:underline">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lynn Nduta | Portfolio</title>
 
-    <!-- Hero Section -->
-    <section class="text-center py-16 bg-gradient-to-r from-indigo-200 to-purple-200">
-      <h2 class="text-4xl font-bold mb-2">Hi, I'm Lynn 👋</h2>
-      <p class="text-xl">A front-end developer passionate about crafting beautiful, user-friendly web experiences.</p>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F472B6', // pink-400
+            secondary: '#A78BFA', // purple-400
+            accent: '#F9C5D1',
+            bgDark: '#121212',
+            bgLight: '#1E1E2F',
+          },
+          fontFamily: {
+            handwriting: ['Pacifico', 'cursive'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            fadein: 'fadein 0.8s ease forwards',
+            bounceSlow: 'bounce 2.5s infinite',
+            floatUp: 'floatUp 1s ease forwards',
+          },
+          keyframes: {
+            fadein: {
+              '0%': { opacity: 0, transform: 'translateY(15px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            floatUp: {
+              '0%': { opacity: 0, transform: 'translateY(30px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    nav a.active {
+      color: #F472B6;
+      font-weight: 700;
+    }
+    .hidden {
+      display: none !important;
+    }
+    a {
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #A78BFA;
+    }
+    h1, h2, h3 {
+      font-family: 'Pacifico', cursive;
+    }
+  </style>
+
+  <!-- Language icons (English and Swahili) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-bgLight p-5 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center max-w-4xl">
+      <h1 class="text-3xl text-primary font-handwriting cursor-default select-none">Lynn Nduta</h1>
+      <ul class="flex space-x-8 text-lg font-semibold">
+        <li><a href="#" data-page="home" class="nav-link text-gray-300 hover:text-primary transition active">Home</a></li>
+        <li><a href="#" data-page="about" class="nav-link text-gray-300 hover:text-primary transition">About</a></li>
+        <li><a href="#" data-page="skills" class="nav-link text-gray-300 hover:text-primary transition">Skills</a></li>
+        <li><a href="#" data-page="contact" class="nav-link text-gray-300 hover:text-primary transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-6 py-12 max-w-4xl">
+
+    <!-- Home Section -->
+    <section id="home" class="page animate-fadein">
+      <h2 class="text-6xl font-handwriting text-primary mb-6 text-center animate-bounceSlow">
+        Hi, I'm Lynn 👋
+      </h2>
+      <p class="text-xl text-gray-300 text-center max-w-xl mx-auto mb-10 leading-relaxed font-sans">
+        I am a passionate front-end developer, dedicated to crafting beautiful, responsive web experiences that empower users.
+        As a strong advocate for women in tech, I believe in using technology to build inclusive and innovative futures.
+      </p>
+      <img
+        src="myphoto.jpg"
+        alt="Lynn's Photo"
+        class="mx-auto rounded-full w-48 shadow-lg border-4 border-primary hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
     </section>
 
-    <!-- About -->
-    <section id="about" class="py-12 px-4 max-w-3xl mx-auto">
-      <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-      <p>
-        I'm a junior developer focused on creating responsive and engaging websites using HTML, CSS, Tailwind, and JavaScript.
-        I also use Figma for designing clean UI layouts. Currently diving into backend development to grow into a full-stack role.
+    <!-- About Section -->
+    <section id="about" class="page hidden animate-fadein">
+      <h2 class="text-5xl font-handwriting text-primary mb-8 text-center">About Me</h2>
+      <p class="text-lg leading-relaxed max-w-3xl mx-auto text-center font-sans text-gray-300">
+        I'm a junior software developer specialized in front-end technologies like HTML, CSS, JavaScript, and React.
+        My journey began with a strong desire to solve problems and create delightful user experiences.
+        I have gained hands-on experience through real-world projects and continue to learn and grow every day.
+        Beyond coding, I am passionate about empowering women and girls to enter technology fields,
+        fostering an environment where diversity drives innovation.
       </p>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="py-12 bg-white px-4 max-w-3xl mx-auto">
-      <h3 class="text-2xl font-semibold mb-4">Skills</h3>
-      <ul class="grid grid-cols-2 gap-4">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Tailwind CSS</li>
-        <li>JavaScript</li>
-        <li>React (learning)</li>
-        <li>Figma (UI/UX design)</li>
+    <!-- Skills Section -->
+    <section id="skills" class="page hidden animate-fadein">
+      <h2 class="text-5xl font-handwriting text-primary mb-10 text-center">My Skills & Languages</h2>
+
+      <div class="mb-12 text-center space-y-4">
+        <h3 class="text-3xl font-handwriting text-secondary">Languages I Speak</h3>
+        <div class="flex justify-center space-x-12 mt-4 text-6xl text-primary">
+          <div title="English" class="flex flex-col items-center cursor-default select-none">
+            <i class="fas fa-language"></i>
+            <span class="mt-2 text-lg font-sans text-gray-300">English</span>
+          </div>
+          <div title="Swahili" class="flex flex-col items-center cursor-default select-none">
+            <i class="fas fa-globe-africa"></i>
+            <span class="mt-2 text-lg font-sans text-gray-300">Swahili</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-4xl font-handwriting text-secondary mb-8 text-center">Technical Skills</h3>
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto text-lg font-sans">
+        <li class="bg-bgLight p-6 rounded-xl shadow-lg hover:bg-primary hover:text-gray-900 transition cursor-default text-center">HTML</li>
+        <li class="bg-bgLight p-6 rounded-xl shadow-lg hover:bg-primary hover:text-gray-900 transition cursor-default text-center">CSS</li>
+        <li class="bg-bgLight p-6 rounded-xl shadow-lg hover:bg-primary hover:text-gray-900 transition cursor-default text-center">Tailwind CSS</li>
+        <li class="bg-bgLight p-6 rounded-xl shadow-lg hover:bg-primary hover:text-gray-900 transition cursor-default text-center">JavaScript</li>
+        <li class="bg-bgLight p-6 rounded-xl shadow-lg hover:bg-primary hover:text-gray-900 transition cursor-default text-center">React (learning)</li>
+        <li class="bg-bgLight p-6 rounded-xl shadow-lg hover:bg-primary hover:text-gray-900 transition cursor-default text-center">Figma (UI/UX design)</li>
       </ul>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="py-12 px-4 max-w-3xl mx-auto">
-      <h3 class="text-2xl font-semibold mb-4">Projects</h3>
-      <p>Currently working on frontend-focused projects. Check back soon for updates! 🚀</p>
+    <!-- Contact Section -->
+    <section id="contact" class="page hidden animate-fadein max-w-2xl mx-auto">
+      <h2 class="text-5xl font-handwriting text-primary mb-8 text-center">Get in Touch</h2>
+      <ul class="text-center space-y-6 text-lg font-sans">
+        <li>
+          📧 Email: 
+          <a href="mailto:lynnnduta23@gmail.com" class="text-secondary hover:text-primary underline">
+            lynnnduta23@gmail.com
+          </a>
+        </li>
+        <li>
+          💻 GitHub: 
+          <a href="https://github.com/lynnnduta" target="_blank" rel="noopener" class="text-secondary hover:text-primary underline">
+            github.com/lynnnduta
+          </a>
+        </li>
+        <li>
+          🔗 LinkedIn: 
+          <a href="https://www.linkedin.com/in/lynn-nduta-98a602316/?trk=opento_sprofile_topcard" target="_blank" rel="noopener" class="text-secondary hover:text-primary underline">
+            linkedin.com/in/lynn-nduta-98a602316
+          </a>
+        </li>
+      </ul>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-12 bg-white px-4 max-w-3xl mx-auto">
-      <h3 class="text-2xl font-semibold mb-4">Contact</h3>
-      <p>Email: <a href="mailto:lynnnduta23@gmail.com" class="text-blue-600 underline">lynnnduta23@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/yourusername" class="text-blue-600 underline">github.com/yourusername</a></p>
-    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-4 text-sm text-gray-600">
-      &copy; 2025 Lynn Nduta. All rights reserved.
-    </footer>
+  <footer class="text-center py-6 px-4 bg-bgLight text-sm text-gray-400">
+    &copy; 2025 Lynn Nduta. All rights reserved.
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <script>
+    // SPA navigation with fade animation
+    const links = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        // Remove active classes
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        const target = link.getAttribute('data-page');
+
+        pages.forEach(page => {
+          if (page.id === target) {
+            page.classList.remove('hidden');
+            page.style.opacity = 0;
+            page.style.transition = 'opacity 0.5s ease-in-out';
+            requestAnimationFrame(() => {
+              page.style.opacity = 1;
+            });
+          } else {
+            page.style.opacity = 0;
+            setTimeout(() => {
+              page.classList.add('hidden');
+            }, 500);
+          }
+        });
+      });
+    });
+  </script>
+</body>
 </html>
